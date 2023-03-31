@@ -1,0 +1,136 @@
+on packet receive:
+    # Block packet that sets player on fire
+    if packet type is 0x2a:
+        cancel event
+    
+    # Block packet that teleports player to invalid location
+    if packet type is 0x08:
+        set {_x} to x position of packet
+        set {_y} to y position of packet
+        set {_z} to z position of packet
+        if {_x} < -3000 or {_x} > 3000 or {_y} < -3000 or {_y} > 3000 or {_z} < -3000 or {_z} > 3000:
+            cancel event
+        
+    # Block packet that changes player game mode
+    if packet type is 0x1b:
+        cancel event
+    
+    # Block packet that changes player dimension
+    if packet type is 0x1f:
+        cancel event
+    
+    # Block packet that changes player health
+    if packet type is 0x06:
+        cancel event
+    
+    # Block packet that changes player inventory
+    if packet type is 0x2e:
+        cancel event
+    
+    # Block packet that spawns entities
+    if packet type is 0x0f:
+        cancel event
+    
+    # Block packet that destroys entities
+    if packet type is 0x13:
+        cancel event
+    
+    # Block packet that changes block data
+    if packet type is 0x22:
+        cancel event
+    
+    # Block packet that places blocks
+    if packet type is 0x10:
+        cancel event
+    
+    # Block packet that breaks blocks
+    if packet type is 0x14:
+        cancel event
+    
+    # Block packet that changes player attributes
+    if packet type is 0x20:
+        cancel event
+    
+    # Block packet that changes player abilities
+    if packet type is 0x30:
+        cancel event
+    
+    # Block packet that changes player statistics
+    if packet type is 0x37:
+        cancel event
+
+on packet receive:
+    # Block packet that sets player on fire
+    if packet type is 0x2a:
+        cancel event
+    
+    # Block packet that teleports player to invalid location
+    if packet type is 0x08:
+        set {_x} to x position of packet
+        set {_y} to y position of packet
+        set {_z} to z position of packet
+        if {_x} < -3000 or {_x} > 3000 or {_y} < -3000 or {_y} > 3000 or {_z} < -3000 or {_z} > 3000:
+            cancel event
+        
+    # Block packet that changes player game mode
+    if packet type is 0x1b:
+        cancel event
+    
+    # Block packet that changes player dimension
+    if packet type is 0x1f:
+        cancel event
+    
+    # Block packet that changes player health
+    if packet type is 0x06:
+        cancel event
+    
+    # Block packet that changes player inventory
+    if packet type is 0x2e:
+        cancel event
+    
+    # Block packet that spawns entities
+    if packet type is 0x0f:
+        cancel event
+    
+    # Block packet that destroys entities
+    if packet type is 0x13:
+        cancel event
+    
+    # Block packet that changes block data
+    if packet type is 0x22:
+        cancel event
+    
+    # Block packet that places blocks
+    if packet type is 0x10:
+        cancel event
+    
+    # Block packet that breaks blocks
+    if packet type is 0x14:
+        cancel event
+    
+    # Block packet that changes player attributes
+    if packet type is 0x20:
+        cancel event
+    
+    # Block packet that changes player abilities
+    if packet type is 0x30:
+        cancel event
+    
+    # Block packet that changes player statistics
+    if packet type is 0x37:
+        cancel event
+
+
+on packet receive:
+    if type of received packet is "keep-alive" and length of received packet is greater than 1024:
+        cancel event
+        send "&cWarning: Possible packet crash attempt detected!" to all players with permission "ac.view"
+    if type of received packet is "login" and length of received packet is greater than 1024:
+        cancel event
+        send "&cWarning: Possible packet crash attempt detected!" to all players with permission "ac.view"
+    if type of received packet is "handshake" and length of received packet is greater than 1024:
+        cancel event
+        send "&cWarning: Possible packet crash attempt detected!" to all players with permission "ac.view"
+    if type of received packet is "chat" and length of received packet is greater than 1024:
+        cancel event
+        send "&cWarning: Possible packet crash attempt detected!" to all players with permission "ac.view"
